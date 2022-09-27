@@ -1,6 +1,7 @@
 import '../App.css';
-import React, { useEffect} from 'react';
-function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, setStatus, editTask, setEditTask}){
+import React, { useEffect, useState} from 'react';
+function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, setStatus, editTask, setEditTask, text}){
+    
 
     const inputTitleHandler = (e) => {
         setTitle(e.target.value);
@@ -16,12 +17,16 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
         setTasks(newTask);
         setEditTask("");
     }
-
     useEffect(() => {
+        const statusVal = document.getElementById('status');
         if (editTask) {
-            setTitle(editTask.value);
+            setTitle(editTask.title);
+            setDeadline(editTask.deadline);
+            statusVal.value = editTask.status;
         } else {
             setTitle("");
+            setDeadline("dd/mm/yyyy");
+            statusVal.value = "todo"
         }
     }, [setTitle, editTask]);
 
@@ -53,7 +58,7 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
                     </div>
                     <div className="status">
                         <div>Status: </div>
-                        <select name="status" id="status" onChange={statusHandler}>
+                        <select name="status" id="status" onChange={statusHandler}> 
                             <option value="todo">Todo</option>
                             <option value="in_progress">In progress</option>
                             <option value="done">Done</option>
@@ -61,8 +66,10 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
                     </div>
                 </div> 
                 <button type="submit" onClick={createTask}>
-                    Create task
+                    {editTask ? "Edit task" : "Create task"}
                 </button>
+
+                <p className='message'>{text}</p>
             </form>
         </div>
     )

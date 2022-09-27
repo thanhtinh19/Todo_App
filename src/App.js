@@ -18,6 +18,7 @@ function App() {
   const [tasks, setTasks] = useState(getLocalTasks());
   const [status, setStatus] = useState('');
   const [editTask, setEditTask] = useState(null);
+  const [text, setText] = useState('');
 
 
   useEffect(() => {
@@ -27,9 +28,11 @@ function App() {
 
   const saveLocalTasks = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    console.log(localStorage.getItem('tasks', JSON.stringify(tasks)))
   }
 
+  const handlerEdit = (task) => {
+    setEditTask(task);
+  }
 
   return (
     <div>
@@ -40,6 +43,7 @@ function App() {
         <TodoList 
           tasks={tasks}
           setTasks = {setTasks}
+          onEdit={handlerEdit}
         />
         <Form 
         titleText = {titleText}
@@ -51,9 +55,9 @@ function App() {
         setStatus = {setStatus}
         editTask = {editTask}
         setEditTask = {setEditTask}
+        text = {text}
         />
       </div>
-
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import '../App.css';
 
-function TodoItem({titleText, deadlineText, status, tasks, task, setTasks}){
+function TodoItem({ titleText, deadlineText, status, tasks, task, setTasks, editHandler}){
 
     const deleteHandler = () => {
         if(window.confirm('Bạn có muốn xóa không?')){
@@ -14,7 +14,7 @@ function TodoItem({titleText, deadlineText, status, tasks, task, setTasks}){
                 <span className='title_text'>{titleText}</span>
                 <div className="edit_delete">
                     <span id="datetime" className='deadline_text'>{deadlineText}</span>
-                    <i className="fa fa-pencil-alt"></i>
+                    <i className="fa fa-pencil-alt" onClick={editHandler} ></i>
                     <i className="fa fa-trash" onClick={deleteHandler}></i>
                     <p className='status_text'>{status}</p>
                 </div>

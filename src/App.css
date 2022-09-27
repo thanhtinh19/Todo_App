@@ -129,11 +129,8 @@ i:hover {
   width: 90%;
   margin: 20px 0px 20px 0px;
 }
-
-.red {
-  background-color: red;
-}
-
-.green {
-  background-color: limegreen;
+.message{
+  color: red;
+  padding: 10px;
+  margin-top: 10px;
 }

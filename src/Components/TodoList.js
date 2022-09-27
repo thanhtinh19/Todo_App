@@ -1,7 +1,8 @@
 import '../App.css'
 import TodoItem from './TodoItem';
 
-function TodoList({ setTasks, tasks}){
+function TodoList({ setTasks, tasks, onEdit}){
+
     return (
         <div className="content">
             <div className="search">
@@ -17,6 +18,7 @@ function TodoList({ setTasks, tasks}){
                         titleText={task.title}
                         deadlineText = {task.deadline}
                         status = {task.status}
+                        editHandler = {() => onEdit(task)}
                          />
                 ))}
             </div>
