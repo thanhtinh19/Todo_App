@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useEffect, useState} from 'react';
-function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, setStatus, editTask, setEditTask, text}){
+function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, setStatus, editTask, setEditTask}){
     
     const [error, setError] = useState('')
     const inputTitleHandler = (e) => {

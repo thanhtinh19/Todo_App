@@ -18,7 +18,6 @@ function App() {
   const [tasks, setTasks] = useState(getLocalTasks());
   const [status, setStatus] = useState('');
   const [editTask, setEditTask] = useState(null);
-  const [text, setText] = useState('');
 
 
   useEffect(() => {
@@ -44,6 +43,7 @@ function App() {
           tasks={tasks}
           setTasks = {setTasks}
           onEdit={handlerEdit}
+          getTasks={getLocalTasks}
         />
         <Form 
         titleText = {titleText}
@@ -55,7 +55,6 @@ function App() {
         setStatus = {setStatus}
         editTask = {editTask}
         setEditTask = {setEditTask}
-        text = {text}
         />
       </div>
     </div>
