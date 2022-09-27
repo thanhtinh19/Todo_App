@@ -2,7 +2,8 @@ import '../App.css';
 import React, { useEffect, useState} from 'react';
 function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, setStatus, editTask, setEditTask}){
     
-    const [error, setError] = useState('')
+    const [error1, setError1] = useState('')
+    const [error2, setError2] = useState('')
     const inputTitleHandler = (e) => {
         setTitle(e.target.value);
     }
@@ -33,9 +34,6 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
     const createTask = (e) => {
         const statusVal = document.getElementById('status').value;
         e.preventDefault();
-        if(titleText === ''){
-            setError("Trường Title bị trống!!")
-        } else setError("")
         if (!editTask) {
             if (titleText) {
                 setTasks([
@@ -51,15 +49,15 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
     
     return(
         <div className="newTask">
-            <form>
+            <form onSubmit={createTask}>
                 <div>Title: </div>
                 <input type="text" id="title" autoFocus={true} value={titleText} onChange={inputTitleHandler} required />
-                <p className='message'>{error}</p>
                 <div className="date_status">
                     <div className="date">
                         <div>Deadline: </div>
-                        <input type="date" id="deadline" value={deadlineText} onChange={inputDeadlineHandler} />
+                        <input type="date" id="deadline" value={deadlineText} onChange={inputDeadlineHandler} required/>
                     </div>
+                    
                     <div className="status">
                         <div>Status: </div>
                         <select name="status" id="status" onChange={statusHandler}> 
@@ -69,7 +67,7 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
                         </select>
                     </div>
                 </div> 
-                <button type="submit" onClick={createTask}>
+                <button type="submit">
                     {editTask ? "Edit task" : "Create task"}
                 </button>
 

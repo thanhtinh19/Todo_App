@@ -11,6 +11,7 @@ function TodoList({ setTasks, tasks, onEdit, getTasks}){
         <div className="content">
             <form className="search">
                 <input type="text" id="search" placeholder="Search" onChange={inputSearchHandler} value={taskSearch} />
+                
                 {/* <i className="fa fa-search" onClick={searchHandler  } ></i> */}
             </form>
             <div id="task_render">
