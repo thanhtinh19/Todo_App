@@ -7,6 +7,7 @@ function TodoList({ setTasks, tasks, onEdit}){
         <div className="content">
             <div className="search">
                 <input type="text" id="search" placeholder="Search" />
+                <i className="fa fa-search"></i>
             </div>
             <div id="task_render">
                 {tasks.map((task) => (
