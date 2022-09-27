@@ -2,7 +2,7 @@ import '../App.css';
 import React, { useEffect, useState} from 'react';
 function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, setStatus, editTask, setEditTask, text}){
     
-
+    const [error, setError] = useState('')
     const inputTitleHandler = (e) => {
         setTitle(e.target.value);
     }
@@ -33,6 +33,9 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
     const createTask = (e) => {
         const statusVal = document.getElementById('status').value;
         e.preventDefault();
+        if(titleText === ''){
+            setError("Trường Title bị trống!!")
+        } else setError("")
         if (!editTask) {
             if (titleText) {
                 setTasks([
@@ -51,6 +54,7 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
             <form>
                 <div>Title: </div>
                 <input type="text" id="title" autoFocus={true} value={titleText} onChange={inputTitleHandler} required />
+                <p className='message'>{error}</p>
                 <div className="date_status">
                     <div className="date">
                         <div>Deadline: </div>
@@ -69,7 +73,7 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
                     {editTask ? "Edit task" : "Create task"}
                 </button>
 
-                <p className='message'>{text}</p>
+                
             </form>
         </div>
     )
