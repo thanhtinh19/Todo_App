@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+* {
+  margin: 0;
+  font-family: 'Josefin Sans',
+    sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 20px;
+}
+
+.todoApp {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+#createNewTask {
+  padding: 5px 15px 5px 15px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.newTask {
+  font-size: 20px;
+}
+
+input {
+  border: 1px solid rgba(1, 47, 77, 0.239);
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+select {
+  font-size: 15px;
+  border: 1px solid rgba(1, 47, 77, 0.239);
+  border-radius: 5px;
+}
+
+#title {
+  width: 90%;
+  padding: 10px 15px 10px 15px;
+  margin-bottom: 20px;
+}
+
+.date_status {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.date {
+  margin-right: 20px;
+}
+
+#deadline {
+  padding: 5px 15px 5px 15px;
+}
+
+#status {
+  width: 120px;
+  padding: 5px 15px 5px 5px;
+}
+
+button {
+  font-size: 17px;
+  padding: 10px 15px 10px 15px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: black;
+  background-color: white;
+}
+
+.task {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#circle {
+  width: 15px;
+  height: 15px;
+  border: 2px solid black;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+.task_content {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #EEF2F6;
+  padding: 10px 15px 10px 15px;
+  border-radius: 10px;
+  font-size: 17px;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  padding-right: 50px;
+}
+
+i {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+i:hover {
+  color: red;
+}
+
+#datetime {
+  color: red;
+  font-size: 15px;
+  margin-right: 20px;
+}
+
+#search {
+  padding: 10px 15px 10px 15px;
+  width: 90%;
+  margin: 20px 0px 20px 0px;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: limegreen;
+}
