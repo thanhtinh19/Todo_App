@@ -3,19 +3,18 @@ import './App.css';
 import Form from './Components/Form';
 import TodoList from './Components/TodoList';
 
+const getLocalTasks = () => {
+  let taskList = localStorage.getItem('tasks');
+  if (taskList) {
+    return JSON.parse(localStorage.getItem("tasks"))
+  } else return [];
+}
+
 function App() {
-
-  const getLocalTasks = () => {
-    let taskList = localStorage.getItem('tasks');
-    if (taskList) {
-      return JSON.parse(localStorage.getItem("tasks"))
-    } else return [];
-  }
-
   // State
   const [titleText, setTitle] = useState('');
   const [deadlineText, setDeadline] = useState('');
-  const [tasks, setTasks] = useState(getLocalTasks());
+  const [tasks, setTasks] = useState(getLocalTasks);
   const [status, setStatus] = useState('');
   const [editTask, setEditTask] = useState(null);
 

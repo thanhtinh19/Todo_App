@@ -1,9 +1,7 @@
 import '../App.css';
-import React, { useEffect, useState} from 'react';
+import React, { useEffect} from 'react';
 function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, setStatus, editTask, setEditTask}){
     
-    const [error1, setError1] = useState('')
-    const [error2, setError2] = useState('')
     const inputTitleHandler = (e) => {
         setTitle(e.target.value);
     }
@@ -13,10 +11,11 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
     const statusHandler = (e) => {
         setStatus(e.target.value);
     }
+    
     const updateTask = (id,title, deadline, status) => {
         const newTask = tasks.map(task => task.id === id ? { id, title, deadline, status } : task);
         setTasks(newTask);
-        setEditTask("");
+        setEditTask('');
     }
     useEffect(() => {
         const statusVal = document.getElementById('status');
@@ -27,7 +26,7 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
         } else {
             setTitle("");
             setDeadline("dd/mm/yyyy");
-            statusVal.value = "todo"
+            statusVal.value = "todo";
         }
     }, [setTitle, editTask]);
 
@@ -40,6 +39,8 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
                     ...tasks, {id: Math.random() * 1000, title: titleText, deadline: deadlineText, status: statusVal }
                 ]);
                 setTitle("");
+                setDeadline("dd/mm/yyyy");
+                statusVal.value = "todo";
             }
         } else {
             updateTask(editTask.id, titleText, deadlineText, statusVal)
