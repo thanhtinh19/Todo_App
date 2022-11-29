@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Form from './Components/Form';
 import TodoList from './Components/TodoList';
-
 const getLocalTasks = () => {
   let taskList = localStorage.getItem('tasks');
   if (taskList) {
@@ -11,13 +10,13 @@ const getLocalTasks = () => {
 }
 
 function App() {
+
   // State
   const [titleText, setTitle] = useState('');
   const [deadlineText, setDeadline] = useState('');
   const [tasks, setTasks] = useState(getLocalTasks);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState('todo');
   const [editTask, setEditTask] = useState(null);
-
 
   useEffect(() => {
     saveLocalTasks();
@@ -32,18 +31,21 @@ function App() {
     setEditTask(task);
   }
 
+
+
   return (
     <div>
       <header>
         <h1>Todo App</h1>
       </header>
       <div className='todoApp'>
-        <TodoList 
-          tasks={tasks}
-          setTasks = {setTasks}
-          onEdit={handlerEdit}
-          getTasks={getLocalTasks}
-        />
+        <div className='content'>
+          <TodoList
+            tasks={tasks}
+            setTasks={setTasks}
+            onEdit={handlerEdit}
+          />
+        </div>
         <Form 
         titleText = {titleText}
         setTitle = {setTitle}

@@ -1,4 +1,3 @@
-import {useEffect, useState } from 'react';
 import '../App.css';
 
 function TodoItem({ titleText, deadlineText, status, tasks, task, setTasks, editHandler}){
@@ -8,19 +7,22 @@ function TodoItem({ titleText, deadlineText, status, tasks, task, setTasks, edit
             setTasks(tasks.filter((el) => el.id !== task.id));
         }
     }
+
     let text = "";
     const now = new Date();
     const getDate = new Date(deadlineText);
-    if(status == "done"){
+    if(status === "done"){
         text = "task_content green"
     }
-    if(status == "in_progress"){
+    if(status === "in_progress"){
         if(getDate < now) text = "task_content red"
         if(getDate >= now) text = "task_content orange"
     }
-    if(status == "todo"){
+    if(status === "todo"){
         text = "task_content"
     }
+
+
     return(
         <div className="task" id="task">  
             <div className={text}>

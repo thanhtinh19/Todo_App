@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useEffect} from 'react';
-function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, setStatus, editTask, setEditTask}){
+function Form({ titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, setStatus, editTask, setEditTask}){
     
     const inputTitleHandler = (e) => {
         setTitle(e.target.value);
@@ -25,27 +25,26 @@ function Form({titleText, setTitle, deadlineText, setDeadline, tasks, setTasks, 
             statusVal.value = editTask.status;
         } else {
             setTitle("");
-            setDeadline("dd/mm/yyyy");
+            setDeadline("");
             statusVal.value = "todo";
         }
     }, [setTitle, editTask]);
 
     const createTask = (e) => {
-        const statusVal = document.getElementById('status').value;
+        const statusVal = document.getElementById('status');
         e.preventDefault();
         if (!editTask) {
             if (titleText) {
                 setTasks([
-                    ...tasks, {id: Math.random() * 1000, title: titleText, deadline: deadlineText, status: statusVal }
+                    ...tasks, {id: Math.random() * 1000, title: titleText, deadline: deadlineText, status: statusVal.value }
                 ]);
                 setTitle("");
-                setDeadline("dd/mm/yyyy");
+                setDeadline("");
                 statusVal.value = "todo";
             }
         } else {
-            updateTask(editTask.id, titleText, deadlineText, statusVal)
+            updateTask(editTask.id, titleText, deadlineText, statusVal.value)
         }
-
     }
     
     return(

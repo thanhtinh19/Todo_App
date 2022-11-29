@@ -127,12 +127,8 @@ i:hover {
 #search {
   padding: 10px 15px 10px 15px;
   width: 90%;
-  margin: 20px 0px 20px 0px;
 }
-.search{
-  display: flex;
-  align-items: center;
-}
+
 .fa-search{
   background-color: black;
   color: white;
@@ -158,4 +154,34 @@ i:hover {
 }
 .green{
   background-color: rgba(0, 128, 0, 0.405);
+}
+.search-from-to{
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-end;
+}
+.search-from-to input{
+  padding: 5px 10px 5px 10px;
+  margin-right: 20px;
+}
+.search-from-to button{
+  margin-right: 5%;
+  padding: 10px 10px 10px 10px !important;
+}
+.title_status{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.title_status select{
+  padding: 10px 10px 10px 10px;
+  font-size: 17px;
+  margin-left: 10%;
+}
+.title-text{
+  width: 70%;
+}
+.status-text{
+  width: 20%;
 }
